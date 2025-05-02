@@ -4,22 +4,25 @@ USER = $(shell whoami)
 OS = $(shell uname)
 
 COMPILER = cc
-CFLAGS = -g -Wall -Wextra -Werror -fsanitize=address
+CFLAGS = #-g -Wall -Wextra -Werror -fsanitize=address
 
 SRC = getnextline42/get_next_line.c \
       getnextline42/get_next_line_utils.c \
+	  src/stack_utils.c \
+	  src/init.c \
+	  main.c \
       
 
 OBJS_DIR = objs
 OBJS = $(patsubst %.c, $(OBJS_DIR)/%.o, $(SRC))
 
 
-all: $(OBJS_DIR) MLX42 $(NAME)
+all: $(OBJS_DIR) $(NAME)
 
 
 $(NAME): $(OBJS)
 	@make -C libft-42 --silent
-	@make -C printf42 --silent
+	@$(COMPILER) -o $(NAME) $(OBJS) $(CFLAGS) libft-42/libft.a
 
 
 $(OBJS_DIR)/%.o: %.c
@@ -32,7 +35,6 @@ $(OBJS_DIR):
 
 clean:
 	@rm -rf $(OBJS_DIR)
-	@cd printf42 && make fclean && cd ..
 	@cd libft-42 && make fclean && cd ..
 
 fclean: clean
