@@ -6,7 +6,7 @@
 /*   By: roalexan <roalexan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/02 16:51:55 by roalexan          #+#    #+#             */
-/*   Updated: 2025/05/04 17:43:48 by roalexan         ###   ########.fr       */
+/*   Updated: 2025/05/04 19:09:50 by roalexan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 void	print_stack(t_stack_node *stack)
 {
-    while (stack)
-    {
-        printf("%d ", stack->nbr);
-        stack = stack->next;
-    }
-    printf("\n");
+	while (stack)
+	{
+		printf("%d ", stack->nbr);
+		stack = stack->next;
+	}
+	printf("\n");
 }
 t_stack_node	*get_bottom(t_stack_node *stack) // bottom of stack
 {
@@ -38,47 +38,93 @@ void	free_stack(t_stack_node **stack)
 		free(temp);
 	}
 }
+int	ft_isnumeric(char *str)
+{
+	int	i;
+
+	if (!str || !*str)
+		return (0);
+	i = 0;
+	if (str[i] == '-' || str[i] == '+')
+		i++;
+	while (str[i])
+	{
+		if (!ft_isdigit(str[i]))
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
+char	**special_split(t_stack_node **stack, char *input)
+{
+	char	**split;
+	int		i;
+	long	num;
+
+	split = ft_split(input, ' ');
+	if (!split || !split[0])
+	{
+		free_split(split);
+		errer(stack);
+	}
+	i = 0;
+	while (split[i])
+	{
+		if (!ft_isnumeric(split[i]))
+		{
+			free_split(split);
+			errer(stack);
+		}
+		num = ft_atol(split[i]);
+		if (num > INT_MAX || num < INT_MIN || is_dublicate(*stack, (int)num))
+		{
+			free_split(split);
+			errer(stack);
+		}
+		add_node_back(stack, (int)num);
+		i++;
+	}
+	return (split);
+}
 
 int	main(int argc, char **argv)
 {
 	t_stack_node	*a;
 	t_stack_node	*b;
-	char			**args;
 
 	a = NULL;
 	b = NULL;
-	args = NULL;
-	if (argc == 1 && (argc == 2 || !argv[1][0]))
+	if (argc == 1 || (argc == 2 && !argv[1][0]))
 		return (1);
-	else if (argc == 2)
+	if (argc == 2)
+		special_split(&a, argv[1]);
+	else
 	{
-		args = ft_split(argv[1], ' ');
-		if (!args || !args[0])
+		for (int i = 1; i < argc; i++)
 		{
-			free_split(args);
-			return (1);
+			if (!ft_isnumeric(argv[i]) || ft_atol(argv[i]) > INT_MAX
+				|| ft_atol(argv[i]) < INT_MIN || is_dublicate(a,
+					ft_atoi(argv[i])))
+				errer(&a);
+			add_node_back(&a, ft_atoi(argv[i]));
 		}
-		stack_init(&a, args);
-		free_split(args);
 	}
-	  else
-        stack_init(&a, argv + 1);
-    if (stack_issorted(a))
-    {
-        free_stack(&a);
-        return (0);
-    }
-    if (stack_size(a) <= 3)
-        sort_three(&a);
-    else if (stack_size(a) <= 6)
-        sort_six(&a, &b);
-    else
-    {
-        push_smallest_three_to_b(&a, &b);
-        push_biggest_three_to_a(&a, &b);
-    }
-    free_stack(&a);
-    free_stack(&b);
-    return (0);
+	if (stack_issorted(a))
+	{
+		free_stack(&a);
+		return (0);
+	}
+	if (stack_size(a) <= 3)
+		sort_three(&a);
+	else if (stack_size(a) <= 6)
+		sort_six(&a, &b);
+	else
+	{
+		push_smallest_three_to_b(&a, &b);
+		push_biggest_three_to_a(&a, &b);
+	}
+	free_stack(&a);
+	free_stack(&b);
+	return (0);
 }
-
