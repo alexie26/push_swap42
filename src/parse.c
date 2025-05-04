@@ -6,7 +6,7 @@
 /*   By: roalexan <roalexan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 15:20:25 by roalexan          #+#    #+#             */
-/*   Updated: 2025/05/03 15:54:31 by roalexan         ###   ########.fr       */
+/*   Updated: 2025/05/04 16:08:05 by roalexan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,41 +28,22 @@ int		stack_len(t_stack_node *stack)
 	return (i);
 }
 
-int		get_node_pos(t_stack_node *node, int size) //positiion in stack based on distace from top
+
+void	stack_init(t_stack_node **a, char **argv)
 {
-	int pos;
+	long	n;
+	int		i;
 
-	pos = 0;
-	while(node->prev)
+	i = 0;
+	while(argv[i])
 	{
-		node = node->prev;
-		pos++;
-	}
-	if (pos > size / 2)
-		return (size - pos); //if its in second half return reverse
-	return (pos);
-}
-
-void	add_node_back(t_stack_node **stack, int nbr) //add note to the end of a doubly
-{
-	t_stack_node	*new_node;
-	t_stack_node	*last;
-
-	new_node = malloc(sizeof(t_stack_node));
-	if (!new_node)
-		return ;
-	new_node->nbr = nbr;
-	new_node->next = NULL;
-	new_node->prev = NULL;
-	if (*stack == NULL)
-	{
-		*stack = new_node;
-	}
-	else
-	{
-		last = get_bottom(*stack);
-		last->next = new_node;
-		new_node->prev = last;
+		n = ft_atol(argv[i]);
+		if (n > INT_MAX || n < INT_MIN || is_dublicate(*a, n))
+		{
+			free_split(argv);
+			errer(a);
+		}
+		add_node_back(a, (int)n);
+		i++;
 	}
 }
-

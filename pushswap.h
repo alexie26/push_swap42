@@ -6,7 +6,7 @@
 /*   By: roalexan <roalexan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 17:12:15 by roalexan          #+#    #+#             */
-/*   Updated: 2025/05/03 20:13:09 by roalexan         ###   ########.fr       */
+/*   Updated: 2025/05/04 17:26:01 by roalexan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,8 +77,12 @@ void					push_biggest_three_to_a(t_stack_node **a,
 void	sort_three(t_stack_node **a);
 void	sort_six(t_stack_node **a, t_stack_node **b);
 
+int	stack_issorted(t_stack_node *stack);
+
+
 
 // main
+void	free_stack(t_stack_node **stack);
 t_stack_node			*get_bottom(t_stack_node *stack);
 int						main(int argc, char **argv);
 
@@ -102,12 +106,15 @@ void					rrb(t_stack_node **b, bool print);
 void					rrr(t_stack_node **a, t_stack_node **b, bool print);
 
 // Parseee
+
+long	ft_atol(const char *s);
+
+void	stack_init(t_stack_node **a, char **argv);
 int						stack_len(t_stack_node *stack);
 int						get_node_pos(t_stack_node *node, int size);
 void					add_node_back(t_stack_node **stack, int nbr);
 
 // Init
-int						is_int(long num);
 int						is_dublicate(t_stack_node *stack, int num);
 void					free_split(char **split);
 void					errer(t_stack_node **stack);
