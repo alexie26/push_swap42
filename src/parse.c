@@ -6,7 +6,7 @@
 /*   By: roalexan <roalexan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 15:20:25 by roalexan          #+#    #+#             */
-/*   Updated: 2025/05/04 16:08:05 by roalexan         ###   ########.fr       */
+/*   Updated: 2025/05/05 15:07:37 by roalexan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,21 +29,3 @@ int		stack_len(t_stack_node *stack)
 }
 
 
-void	stack_init(t_stack_node **a, char **argv)
-{
-	long	n;
-	int		i;
-
-	i = 0;
-	while(argv[i])
-	{
-		n = ft_atol(argv[i]);
-		if (n > INT_MAX || n < INT_MIN || is_dublicate(*a, n))
-		{
-			free_split(argv);
-			errer(a);
-		}
-		add_node_back(a, (int)n);
-		i++;
-	}
-}

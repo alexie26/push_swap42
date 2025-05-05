@@ -6,7 +6,7 @@
 /*   By: roalexan <roalexan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 17:12:15 by roalexan          #+#    #+#             */
-/*   Updated: 2025/05/04 17:26:01 by roalexan         ###   ########.fr       */
+/*   Updated: 2025/05/05 18:52:10 by roalexan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,9 +75,12 @@ void					push_biggest_three_to_a(t_stack_node **a,
 							t_stack_node **b);
 
 void	sort_three(t_stack_node **a);
-void	sort_six(t_stack_node **a, t_stack_node **b);
-
 int	stack_issorted(t_stack_node *stack);
+
+void	push_firsttwo(t_stack_node **a, t_stack_node **b);
+t_stack_node *find_target_node(t_stack_node *b, int value);
+void	push_target_node(t_stack_node **a, t_stack_node **b);
+
 
 
 
