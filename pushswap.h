@@ -6,7 +6,7 @@
 /*   By: roalexan <roalexan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 17:12:15 by roalexan          #+#    #+#             */
-/*   Updated: 2025/05/05 18:52:10 by roalexan         ###   ########.fr       */
+/*   Updated: 2025/05/06 18:27:42 by roalexan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,9 +78,12 @@ void	sort_three(t_stack_node **a);
 int	stack_issorted(t_stack_node *stack);
 
 void	push_firsttwo(t_stack_node **a, t_stack_node **b);
-t_stack_node *find_target_node(t_stack_node *b, int value);
+void	find_target_nodes(t_stack_node *a, t_stack_node *b);
 void	push_target_node(t_stack_node **a, t_stack_node **b);
 
+void	push_back_to_a(t_stack_node **a, t_stack_node **b);
+void final_rotate(t_stack_node **a);
+void full_sort(t_stack_node **a, t_stack_node **b);
 
 
 

@@ -6,7 +6,7 @@
 /*   By: roalexan <roalexan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/02 16:51:55 by roalexan          #+#    #+#             */
-/*   Updated: 2025/05/05 19:15:10 by roalexan         ###   ########.fr       */
+/*   Updated: 2025/05/06 18:15:27 by roalexan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,16 +118,7 @@ int	main(int argc, char **argv)
 	if (stack_size(a) <= 3)
 		sort_three(&a);
 	else
-	{
-		// Push the first two nodes to Stack B
-		push_firsttwo(&a, &b);
-		// Push remaining nodes from Stack A to Stack B while sorting B
-		while (a)
-			push_target_node(&a, &b);
-		// Push all nodes back to Stack A in sorted order
-		while (b)
-			pa(&b, &a);
-	}
+		full_sort(&a, &b);
 	free_stack(&a);
 	free_stack(&b);
 	return (0);

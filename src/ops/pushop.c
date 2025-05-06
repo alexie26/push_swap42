@@ -6,7 +6,7 @@
 /*   By: roalexan <roalexan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 13:23:12 by roalexan          #+#    #+#             */
-/*   Updated: 2025/05/03 14:07:05 by roalexan         ###   ########.fr       */
+/*   Updated: 2025/05/06 18:23:19 by roalexan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void	pb(t_stack_node **a, t_stack_node **b)
 	node->next = *b;
 	if (*b)
 		(*b)->prev = node;
+	node->prev = NULL;
 	*b = node;
 }
 
@@ -41,5 +42,6 @@ void	pa(t_stack_node **a, t_stack_node **b)
 	node->next = *a;
 	if (*a)
 		(*a)->prev = node;
+	node->prev = NULL;
 	*a = node;
 }

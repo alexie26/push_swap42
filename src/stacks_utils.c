@@ -6,7 +6,7 @@
 /*   By: roalexan <roalexan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 15:12:03 by roalexan          #+#    #+#             */
-/*   Updated: 2025/05/03 19:40:01 by roalexan         ###   ########.fr       */
+/*   Updated: 2025/05/06 18:51:39 by roalexan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ t_stack_node	*find_min(t_stack_node *a)
 			min = a;
 		a = a->next;
 	}
+	 printf("Debug: find_min returned node with nbr = %d\n", min->nbr);
 	return (min);
 }
 
