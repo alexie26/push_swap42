@@ -2,6 +2,8 @@
 	"files.associations": {
 		"algorithm": "cpp",
 		"random": "cpp",
-		"stack": "cpp"
+		"stack": "cpp",
+		"chrono": "c",
+		"variant": "c"
 	}
 }

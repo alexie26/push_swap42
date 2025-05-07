@@ -6,7 +6,7 @@
 /*   By: roalexan <roalexan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/02 16:51:55 by roalexan          #+#    #+#             */
-/*   Updated: 2025/05/06 18:15:27 by roalexan         ###   ########.fr       */
+/*   Updated: 2025/05/07 15:08:08 by roalexan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ void	print_stack(t_stack_node *stack)
 {
 	while (stack)
 	{
-		printf("%d ", stack->nbr);
 		stack = stack->next;
 	}
 	printf("\n");
