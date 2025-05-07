@@ -6,13 +6,11 @@
 /*   By: roalexan <roalexan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 18:41:39 by roalexan          #+#    #+#             */
-/*   Updated: 2025/05/07 21:00:01 by roalexan         ###   ########.fr       */
+/*   Updated: 2025/05/07 22:28:53 by roalexan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../pushswap.h"
-
-
 
 void	sort_three(t_stack_node **a)
 {
@@ -45,16 +43,53 @@ void	current_index(t_stack_node *stack)
 	}
 }
 
-void	min_on_top(t_stack_node **a)
+void	bubble_sort(int *array, int len)
 {
-	t_stack_node	*min;
+	int	i;
+	int	j;
+	int	tmp;
+	int	swapped;
 
-	min = find_min(*a);
-	while (*a != min)
+	i = 0;
+	swapped = 1;
+	while (swapped)
 	{
-		if (min->above_median)
-			ra(a, false);
-		else
-			rra(a, false);
+		swapped = 0;
+		j = 0;
+		while (j < len - i - 1)
+		{
+			if (array[j] > array[j + 1])
+			{
+				tmp = array[j];
+				array[j] = array[j + 1];
+				array[j + 1] = tmp;
+				swapped = 1;
+			}
+			j++;
+		}
+		i++;
 	}
 }
+
+int	find_median(t_stack_node *stack, int size)
+{
+	int *arr;
+	t_stack_node *temp;
+	int i;
+	int median;
+
+	arr = malloc(sizeof(int) * size);
+	i = 0;
+	temp = stack;
+
+	while (temp)
+	{
+		arr[i++] = temp->nbr;
+		temp = temp->next;
+	}
+	bubble_sort(arr, size);
+	median = arr[size / 2];
+	free(arr);
+	return (median);
+}
+

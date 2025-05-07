@@ -16,7 +16,7 @@ SRC = getnextline42/get_next_line.c \
 	  src/stacks.c \
 	  src/sort_stack.c \
 	  src/checkin_nodes.c \
-	  src/init.c \
+	  src/utils_etc.c \
 	  push_swap.c \
       
 

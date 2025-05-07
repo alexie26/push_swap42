@@ -6,7 +6,7 @@
 /*   By: roalexan <roalexan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 17:12:15 by roalexan          #+#    #+#             */
-/*   Updated: 2025/05/07 20:46:20 by roalexan         ###   ########.fr       */
+/*   Updated: 2025/05/07 21:59:38 by roalexan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,38 +59,21 @@ typedef struct s_stack_node
 }						t_stack_node;
 
 // Stack utils
-int						stack_size(t_stack_node *stack);
-
 t_stack_node			*find_min(t_stack_node *a);
 t_stack_node			*find_max(t_stack_node *a);
 
-
-void	sort_three(t_stack_node **a);
-int	check_if_sorted(t_stack_node *stack);
-void	current_index(t_stack_node *stack);
-void	min_on_top(t_stack_node **a);
-t_stack_node	*find_cheapest(t_stack_node *stack);
-void	rotate_both(t_stack_node **a, t_stack_node **b, t_stack_node *cheapest);
-void	rrr_both(t_stack_node **a, t_stack_node **b, t_stack_node *cheapest);
-void	move_a_to_b(t_stack_node **a, t_stack_node **b);
-void	move_to_b(t_stack_node **a, t_stack_node **b);
-
-
-
-
-void full_sort(t_stack_node **a, t_stack_node **b);
-
-
+void					sort_three(t_stack_node **a);
+void					current_index(t_stack_node *stack);
 
 // main
-void	free_stack(t_stack_node **stack);
+void					free_stack(t_stack_node **stack);
 t_stack_node			*get_bottom(t_stack_node *stack);
 int						main(int argc, char **argv);
 
 // push_operations;
-void	push(t_stack_node **a, t_stack_node **b);
-void	pb(t_stack_node **b, t_stack_node **a, bool print);
-void	pa(t_stack_node **a, t_stack_node **b, bool print);
+void					push(t_stack_node **a, t_stack_node **b);
+void					pb(t_stack_node **b, t_stack_node **a, bool print);
+void					pa(t_stack_node **a, t_stack_node **b, bool print);
 // swap op
 void					swap(t_stack_node **stack);
 void					sa(t_stack_node **a, bool print);
@@ -109,12 +92,9 @@ void					rrr(t_stack_node **a, t_stack_node **b, bool print);
 
 // Parseee
 
-long	ft_atol(const char *s);
-
-void	stack_init(t_stack_node **a, char **argv);
+long					ft_atol(const char *s);
 int						stack_len(t_stack_node *stack);
 int						get_node_pos(t_stack_node *node, int size);
-void					add_node_back(t_stack_node **stack, int nbr);
 
 // Init
 int						is_dublicate(t_stack_node *stack, int num);
