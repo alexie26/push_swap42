@@ -6,7 +6,7 @@
 /*   By: roalexan <roalexan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/02 16:51:55 by roalexan          #+#    #+#             */
-/*   Updated: 2025/05/07 15:08:08 by roalexan         ###   ########.fr       */
+/*   Updated: 2025/05/07 21:13:41 by roalexan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,16 +109,6 @@ int	main(int argc, char **argv)
 			add_node_back(&a, ft_atoi(argv[i]));
 		}
 	}
-	if (stack_issorted(a))
-	{
-		free_stack(&a);
-		return (0);
-	}
-	if (stack_size(a) <= 3)
-		sort_three(&a);
-	else
-		full_sort(&a, &b);
-	free_stack(&a);
-	free_stack(&b);
+	
 	return (0);
 }

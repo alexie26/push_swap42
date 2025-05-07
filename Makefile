@@ -14,7 +14,6 @@ SRC = getnextline42/get_next_line.c \
 	  src/ops/rotateop.c \
 	  src/parse.c \
 	  src/stacks.c \
-	  src/stacks_utils.c \
 	  src/sort_stack.c \
 	  src/checkin_nodes.c \
 	  src/init.c \

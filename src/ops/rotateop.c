@@ -6,7 +6,7 @@
 /*   By: roalexan <roalexan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 13:29:12 by roalexan          #+#    #+#             */
-/*   Updated: 2025/05/03 20:24:17 by roalexan         ###   ########.fr       */
+/*   Updated: 2025/05/07 20:28:37 by roalexan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,3 +53,6 @@ void	rr(t_stack_node **a, t_stack_node **b, bool print)
 			ft_printf("rr\n");
 }
 
+//  - ra: Shift all the nodes of stack A up by 1. The first element becomes last.
+//  - rb: Shift all the nodes of Stack B up by one.
+//  - rr: ra amd rb at the same time

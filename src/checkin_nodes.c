@@ -6,14 +6,13 @@
 /*   By: roalexan <roalexan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/04 16:06:50 by roalexan          #+#    #+#             */
-/*   Updated: 2025/05/05 19:02:03 by roalexan         ###   ########.fr       */
+/*   Updated: 2025/05/07 21:01:32 by roalexan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../pushswap.h"
 
-int	get_node_pos(t_stack_node *node, int size)
-// positiion in stack based on distace from top
+int	get_node_pos(t_stack_node *node, int size)// positiion in stack based on distace from top
 {
 	int pos;
 
@@ -29,7 +28,6 @@ int	get_node_pos(t_stack_node *node, int size)
 }
 
 void	add_node_back(t_stack_node **stack, int nbr)
-// add note to the end of a doubly
 {
 	t_stack_node *new_node;
 	t_stack_node *last;
@@ -46,28 +44,11 @@ void	add_node_back(t_stack_node **stack, int nbr)
 	}
 	else
 	{
-		last = get_bottom(*stack);
-		last->next = new_node;
-		new_node->prev = last;
+		last = *stack;
+		while (last->next) // Traverse to the last node
+            last = last->next;
+        last->next = new_node; // Update the last node's next pointer
+        new_node->prev = last; 
 	}
-}
-
-int	calc_cost(t_stack_node *stack)
-{
-	int	size;
-	int	i;
-
-	size = stack_size(stack);
-	i = 0;
-	while (stack)
-	{
-		if (i <= size / 2)
-			stack->push_cost = i;
-		else
-			stack->push_cost = size - i;
-		stack = stack->next;
-		i++;
-	}
-	return (0);
 }
 

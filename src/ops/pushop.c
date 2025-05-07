@@ -6,42 +6,50 @@
 /*   By: roalexan <roalexan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 13:23:12 by roalexan          #+#    #+#             */
-/*   Updated: 2025/05/06 18:23:19 by roalexan         ###   ########.fr       */
+/*   Updated: 2025/05/07 20:27:57 by roalexan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../pushswap.h"
 
-void	pb(t_stack_node **a, t_stack_node **b)
+void	push(t_stack_node **a, t_stack_node **b)
 {
-	t_stack_node	*node;
-
-	if (!*a)
-		return ;
-	node = *a;
-	*a = node->next;
-	if (*a)
-		(*a)->prev = NULL;
-	node->next = *b;
-	if (*b)
-		(*b)->prev = node;
-	node->prev = NULL;
-	*b = node;
-}
-
-void	pa(t_stack_node **a, t_stack_node **b)
-{
-	t_stack_node	*node;
-
+	t_stack_node *node;
+	
 	if (!*b)
 		return ;
 	node = *b;
-	*b = node->next;
+	*b = (*b)->next;
 	if (*b)
 		(*b)->prev = NULL;
-	node->next = *a;
-	if (*a)
-		(*a)->prev = node;
 	node->prev = NULL;
-	*a = node;
+	if (!*a)
+	{
+		*a = node;
+		node->next = NULL;
+	}
+	else
+	{
+		node->next = *a;
+		node->next->prev = node;
+		*a = node;
+	}
 }
+
+void	pa(t_stack_node **a, t_stack_node **b, bool print)
+{
+	push(a, b); 
+	if (!print) 
+		ft_printf("pa\n");
+}
+
+void	pb(t_stack_node **b, t_stack_node **a, bool print)
+{
+	push(b, a);
+	if (!print)
+		ft_printf("pb\n");
+}
+
+ // Push Operations
+ //- pa: Top node of B on top of A
+ //- pb: Top node of A on top of B

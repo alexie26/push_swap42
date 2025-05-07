@@ -6,7 +6,7 @@
 /*   By: roalexan <roalexan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/02 16:49:14 by roalexan          #+#    #+#             */
-/*   Updated: 2025/05/05 15:08:36 by roalexan         ###   ########.fr       */
+/*   Updated: 2025/05/07 16:54:44 by roalexan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ void	stack_init(t_stack_node **a, char **argv)
 		n = ft_atol(argv[i]);
 		if (n > INT_MAX || n < INT_MIN || is_dublicate(*a, n))
 		{
-			free_split(argv);
+			// free_split(argv);
 			errer(a);
 		}
 		add_node_back(a, (int)n);

@@ -6,7 +6,7 @@
 /*   By: roalexan <roalexan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/02 17:04:42 by roalexan          #+#    #+#             */
-/*   Updated: 2025/05/04 13:15:22 by roalexan         ###   ########.fr       */
+/*   Updated: 2025/05/07 20:28:58 by roalexan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,3 +53,6 @@ void	ss(t_stack_node **a, t_stack_node **b, bool print)
 	if (print)
 		ft_printf("ss\n");
 }
+//  - sa: Swap the first two nodes at the top of stack A
+//  - sb: Swap the first two nodes at the top of stack B
+//  - ss: sa and sb at the same time

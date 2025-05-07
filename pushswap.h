@@ -6,7 +6,7 @@
 /*   By: roalexan <roalexan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 17:12:15 by roalexan          #+#    #+#             */
-/*   Updated: 2025/05/06 18:27:42 by roalexan         ###   ########.fr       */
+/*   Updated: 2025/05/07 20:46:20 by roalexan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,26 +63,21 @@ int						stack_size(t_stack_node *stack);
 
 t_stack_node			*find_min(t_stack_node *a);
 t_stack_node			*find_max(t_stack_node *a);
-t_stack_node			*find_extreme(t_stack_node *stack,
-							t_stack_node *exclude[], int count, bool find_min);
-t_stack_node			*find_min_exclude(t_stack_node *stack,
-							t_stack_node *exclude[], int count);
-t_stack_node			*find_max_exclude(t_stack_node *stack,
-							t_stack_node *exclude[], int count);
-void					push_smallest_three_to_b(t_stack_node **a,
-							t_stack_node **b);
-void					push_biggest_three_to_a(t_stack_node **a,
-							t_stack_node **b);
+
 
 void	sort_three(t_stack_node **a);
-int	stack_issorted(t_stack_node *stack);
+int	check_if_sorted(t_stack_node *stack);
+void	current_index(t_stack_node *stack);
+void	min_on_top(t_stack_node **a);
+t_stack_node	*find_cheapest(t_stack_node *stack);
+void	rotate_both(t_stack_node **a, t_stack_node **b, t_stack_node *cheapest);
+void	rrr_both(t_stack_node **a, t_stack_node **b, t_stack_node *cheapest);
+void	move_a_to_b(t_stack_node **a, t_stack_node **b);
+void	move_to_b(t_stack_node **a, t_stack_node **b);
 
-void	push_firsttwo(t_stack_node **a, t_stack_node **b);
-void	find_target_nodes(t_stack_node *a, t_stack_node *b);
-void	push_target_node(t_stack_node **a, t_stack_node **b);
 
-void	push_back_to_a(t_stack_node **a, t_stack_node **b);
-void final_rotate(t_stack_node **a);
+
+
 void full_sort(t_stack_node **a, t_stack_node **b);
 
 
@@ -92,9 +87,10 @@ void	free_stack(t_stack_node **stack);
 t_stack_node			*get_bottom(t_stack_node *stack);
 int						main(int argc, char **argv);
 
-// push_operations
-void					pb(t_stack_node **a, t_stack_node **b);
-void					pa(t_stack_node **a, t_stack_node **b);
+// push_operations;
+void	push(t_stack_node **a, t_stack_node **b);
+void	pb(t_stack_node **b, t_stack_node **a, bool print);
+void	pa(t_stack_node **a, t_stack_node **b, bool print);
 // swap op
 void					swap(t_stack_node **stack);
 void					sa(t_stack_node **a, bool print);

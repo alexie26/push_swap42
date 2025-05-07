@@ -6,7 +6,7 @@
 /*   By: roalexan <roalexan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 13:40:57 by roalexan          #+#    #+#             */
-/*   Updated: 2025/05/03 20:24:27 by roalexan         ###   ########.fr       */
+/*   Updated: 2025/05/07 20:28:20 by roalexan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,3 +49,6 @@ void	rrr(t_stack_node **a, t_stack_node **b, bool print)
 	if (print)
 		ft_printf("rrr\n");
 }
+
+//  - rra: Bottom node to the top and shifting the nodes of A down.
+//  - rrb: Bottom ndoe to the top and shifting the nodes of B down.
