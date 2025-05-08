@@ -6,7 +6,7 @@
 /*   By: roalexan <roalexan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 15:20:25 by roalexan          #+#    #+#             */
-/*   Updated: 2025/05/07 21:01:26 by roalexan         ###   ########.fr       */
+/*   Updated: 2025/05/08 17:40:01 by roalexan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,14 @@ int		stack_len(t_stack_node *stack)
 	return (i);
 }
 
-t_stack_node	*find_last(t_stack_node *stack)
-{
-	if (!stack)
-		return (NULL);
-	while (stack->next)
-		stack = stack->next;
-	return (stack);
-}
+// t_stack_node	*find_last(t_stack_node *stack)
+// {
+// 	if (!stack)
+// 		return (NULL);
+// 	while (stack->next)
+// 		stack = stack->next;
+// 	return (stack);
+// }
 
 t_stack_node	*find_min(t_stack_node *a)
 {

@@ -6,7 +6,7 @@
 /*   By: roalexan <roalexan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 17:12:15 by roalexan          #+#    #+#             */
-/*   Updated: 2025/05/07 21:59:38 by roalexan         ###   ########.fr       */
+/*   Updated: 2025/05/08 17:51:35 by roalexan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,5 +100,14 @@ int						get_node_pos(t_stack_node *node, int size);
 int						is_dublicate(t_stack_node *stack, int num);
 void					free_split(char **split);
 void					errer(t_stack_node **stack);
+
+void	add_node_back(t_stack_node **stack, int nbr);
+
+void	current_index(t_stack_node *stack);
+void	bubble_sort(int *array, int len);
+int		find_median(t_stack_node *stack, int size);
+
+
+
 
 #endif

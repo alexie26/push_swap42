@@ -6,11 +6,32 @@
 /*   By: roalexan <roalexan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 18:41:39 by roalexan          #+#    #+#             */
-/*   Updated: 2025/05/07 22:28:53 by roalexan         ###   ########.fr       */
+/*   Updated: 2025/05/08 17:51:01 by roalexan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../pushswap.h"
+
+void	current_index(t_stack_node *stack)
+{
+	int				i;
+	int			median;
+
+	i = 0;
+	if (!stack)
+		return ;
+	median = stack_len(stack) / 2; //lenght of stack half
+	while (stack)
+	{
+		stack->i = i;
+		if (i <= median)
+			stack->above_median = true;
+		else
+			stack->above_median = false;
+		stack = stack->next; 
+		++i; //index increment beofre to set the next node
+	}
+}
 
 void	sort_three(t_stack_node **a)
 {
@@ -25,23 +46,28 @@ void	sort_three(t_stack_node **a)
 		sa(a, true);
 }
 
-void	current_index(t_stack_node *stack)
+void	sort_five(t_stack_node **a, t_stack_node **b)
 {
-	int				i;
-	int				size;
-	t_stack_node	*temp;
-
-	temp = stack;
-	i = 0;
-	size = stack_len(stack);
-	while (temp)
+	int	pushed;
+	
+	pushed = 0;
+	while (stack_len(*a) > 3)
 	{
-		temp->i = i;
-		temp->above_median = (i <= size / 2);
-		temp = temp->next;
-		i++;
+		if ((*a)->i == 0 || (*a)->i == 1)
+		{
+			pb(a, b, true);
+			pushed++;
+		}
+		else
+			ra(a, true);
 	}
+	sort_three(a);
+	if (pushed == 2 && (*b)->i < (*b)->next->i);
+		sb(b, true);
+	pa(b, a, true);
+	pa(b, a, true);
 }
+
 
 void	bubble_sort(int *array, int len)
 {
@@ -73,15 +99,14 @@ void	bubble_sort(int *array, int len)
 
 int	find_median(t_stack_node *stack, int size)
 {
-	int *arr;
-	t_stack_node *temp;
-	int i;
-	int median;
+	int				*arr;
+	t_stack_node	*temp;
+	int				i;
+	int				median;
 
 	arr = malloc(sizeof(int) * size);
 	i = 0;
 	temp = stack;
-
 	while (temp)
 	{
 		arr[i++] = temp->nbr;
@@ -92,4 +117,3 @@ int	find_median(t_stack_node *stack, int size)
 	free(arr);
 	return (median);
 }
-

@@ -6,7 +6,7 @@
 /*   By: roalexan <roalexan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/02 17:04:42 by roalexan          #+#    #+#             */
-/*   Updated: 2025/05/07 20:28:58 by roalexan         ###   ########.fr       */
+/*   Updated: 2025/05/08 17:14:06 by roalexan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	swap(t_stack_node **stack)
 	t_stack_node	*a;
 	t_stack_node	*b;
 
-	if (stack_size(*stack) < 2)
+	if (stack_len(*stack) < 2)
 		return ;
 	a = *stack;
 	b = a->next;

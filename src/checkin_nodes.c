@@ -6,7 +6,7 @@
 /*   By: roalexan <roalexan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/04 16:06:50 by roalexan          #+#    #+#             */
-/*   Updated: 2025/05/07 22:03:33 by roalexan         ###   ########.fr       */
+/*   Updated: 2025/05/08 17:39:34 by roalexan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ int	get_node_pos(t_stack_node *node, int size)
 	int pos;
 
 	pos = 0;
-	if (!node)
-		return (NULL);
+	// if (!node)
+	// 	return (NULL);
 	while (node->prev)
 	{
 		node = node->prev;
@@ -80,5 +80,27 @@ void	node_to_top(t_stack_node **stack, t_stack_node *node, char stack_name)
 			else
 				rrb(stack, false);
 		}
+	}
+}
+void	add_node_back(t_stack_node **stack, int nbr) //add note to the end of a doubly
+{
+	t_stack_node	*new_node;
+	t_stack_node	*last;
+
+	new_node = malloc(sizeof(t_stack_node));
+	if (!new_node)
+		errer(stack);
+	new_node->nbr = nbr;
+	new_node->next = NULL;
+	new_node->prev = NULL;
+	if (*stack == NULL)
+	{
+		*stack = new_node;
+	}
+	else
+	{
+		last = get_bottom(*stack);
+		last->next = new_node;
+		new_node->prev = last;
 	}
 }
