@@ -6,7 +6,7 @@
 /*   By: roalexan <roalexan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/04 16:06:50 by roalexan          #+#    #+#             */
-/*   Updated: 2025/05/08 17:39:34 by roalexan         ###   ########.fr       */
+/*   Updated: 2025/05/09 17:47:55 by roalexan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ int	get_node_pos(t_stack_node *node, int size)
 	int pos;
 
 	pos = 0;
-	// if (!node)
-	// 	return (NULL);
 	while (node->prev)
 	{
 		node = node->prev;
@@ -34,7 +32,7 @@ t_stack_node	*find_last(t_stack_node *stack)
 {
 	if (!stack)
 		return (NULL);
-	while (stack->next) // Loop until the end of the stack is reached
+	while (stack->next)
 		stack = stack->next;
 	return (stack);
 }
@@ -69,16 +67,16 @@ void	node_to_top(t_stack_node **stack, t_stack_node *node, char stack_name)
 		if (stack_name == 'a')
 		{
 			if (node->above_median)
-				ra(stack, false);
+				ra(stack);
 			else
-				rra(stack, false);
+				rra(stack);
 		}
 		else if (stack_name == 'b')
 		{
 			if (node->above_median)
-				rb(stack, false);
+				rb(stack);
 			else
-				rrb(stack, false);
+				rrb(stack);
 		}
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: roalexan <roalexan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 13:40:57 by roalexan          #+#    #+#             */
-/*   Updated: 2025/05/07 20:28:20 by roalexan         ###   ########.fr       */
+/*   Updated: 2025/05/09 17:34:33 by roalexan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,25 +28,22 @@ void	reverse(t_stack_node **stack)
 	*stack = last;
 }
 
-void	rra(t_stack_node **a, bool print)
+void	rra(t_stack_node **a)
 {
 	reverse(a);
-	if (print)
 		ft_printf("rra\n");
 }
 
-void	rrb(t_stack_node **b, bool print)
+void	rrb(t_stack_node **b)
 {
 	reverse(b);
-	if (print)
 		ft_printf("rrb\n");
 }
 
-void	rrr(t_stack_node **a, t_stack_node **b, bool print)
+void	rrr(t_stack_node **a, t_stack_node **b)
 {
 	reverse(a);
 	reverse(b);
-	if (print)
 		ft_printf("rrr\n");
 }
 

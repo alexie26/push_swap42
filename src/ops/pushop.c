@@ -6,7 +6,7 @@
 /*   By: roalexan <roalexan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 13:23:12 by roalexan          #+#    #+#             */
-/*   Updated: 2025/05/07 20:27:57 by roalexan         ###   ########.fr       */
+/*   Updated: 2025/05/09 18:02:33 by roalexan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,18 +36,16 @@ void	push(t_stack_node **a, t_stack_node **b)
 	}
 }
 
-void	pa(t_stack_node **a, t_stack_node **b, bool print)
+void	pa(t_stack_node **a, t_stack_node **b)
 {
 	push(a, b); 
-	if (!print) 
-		ft_printf("pa\n");
+	ft_printf("pa\n");
 }
 
-void	pb(t_stack_node **b, t_stack_node **a, bool print)
+void	pb(t_stack_node **b, t_stack_node **a)
 {
 	push(b, a);
-	if (!print)
-		ft_printf("pb\n");
+	ft_printf("pb\n");
 }
 
  // Push Operations

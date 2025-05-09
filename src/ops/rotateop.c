@@ -6,7 +6,7 @@
 /*   By: roalexan <roalexan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 13:29:12 by roalexan          #+#    #+#             */
-/*   Updated: 2025/05/07 20:28:37 by roalexan         ###   ########.fr       */
+/*   Updated: 2025/05/09 17:33:05 by roalexan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,25 +31,22 @@ void	rotate(t_stack_node **stack)
 	a->next = NULL; //first is now last
 }
 
-void	ra(t_stack_node **a, bool print)
+void	ra(t_stack_node **a)
 {
 	rotate(a);
-	if (print)
 		ft_printf("ra\n");
 }
 
-void	rb(t_stack_node **b, bool print)
+void	rb(t_stack_node **b)
 {
 	rotate(b);
-	if (print)
 		ft_printf("rb\n");
 }
 
-void	rr(t_stack_node **a, t_stack_node **b, bool print)
+void	rr(t_stack_node **a, t_stack_node **b)
 {
 	rotate(a);
 	rotate(b);
-		if(print)
 			ft_printf("rr\n");
 }
 

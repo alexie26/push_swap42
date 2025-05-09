@@ -6,7 +6,7 @@
 /*   By: roalexan <roalexan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 17:12:15 by roalexan          #+#    #+#             */
-/*   Updated: 2025/05/08 17:51:35 by roalexan         ###   ########.fr       */
+/*   Updated: 2025/05/09 18:23:09 by roalexan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ typedef struct s_stack_node
 	int					push_cost;
 	bool				above_median;
 	bool				cheapest;
+	int					value;
 
 	struct s_stack_node	*target_node;
 	struct s_stack_node	*next;
@@ -63,6 +64,7 @@ t_stack_node			*find_min(t_stack_node *a);
 t_stack_node			*find_max(t_stack_node *a);
 
 void					sort_three(t_stack_node **a);
+void					sort_five(t_stack_node **a, t_stack_node **b);
 void					current_index(t_stack_node *stack);
 
 // main
@@ -72,23 +74,23 @@ int						main(int argc, char **argv);
 
 // push_operations;
 void					push(t_stack_node **a, t_stack_node **b);
-void					pb(t_stack_node **b, t_stack_node **a, bool print);
-void					pa(t_stack_node **a, t_stack_node **b, bool print);
+void					pb(t_stack_node **b, t_stack_node **a);
+void					pa(t_stack_node **a, t_stack_node **b);
 // swap op
-void					swap(t_stack_node **stack);
-void					sa(t_stack_node **a, bool print);
-void					sb(t_stack_node **b, bool print);
-void					ss(t_stack_node **a, t_stack_node **b, bool print);
+void					swap(t_stack_node **top);
+void					sa(t_stack_node **a);
+void					sb(t_stack_node **b);
+void					ss(t_stack_node **a, t_stack_node **b);
 // rotate op
 void					rotate(t_stack_node **stack);
-void					ra(t_stack_node **a, bool print);
-void					rb(t_stack_node **b, bool print);
-void					rr(t_stack_node **a, t_stack_node **b, bool print);
+void					ra(t_stack_node **a);
+void					rb(t_stack_node **b);
+void					rr(t_stack_node **a, t_stack_node **b);
 // reverse op
 void					reverse(t_stack_node **stack);
-void					rra(t_stack_node **a, bool print);
-void					rrb(t_stack_node **b, bool print);
-void					rrr(t_stack_node **a, t_stack_node **b, bool print);
+void					rra(t_stack_node **a);
+void					rrb(t_stack_node **b);
+void					rrr(t_stack_node **a, t_stack_node **b);
 
 // Parseee
 
@@ -106,6 +108,10 @@ void	add_node_back(t_stack_node **stack, int nbr);
 void	current_index(t_stack_node *stack);
 void	bubble_sort(int *array, int len);
 int		find_median(t_stack_node *stack, int size);
+
+int	is_sorted(t_stack_node *stack);
+void	radix_sort(t_stack_node **a, t_stack_node **b);
+void	index_stack(t_stack_node *stack);
 
 
 

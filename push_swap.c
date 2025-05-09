@@ -6,7 +6,7 @@
 /*   By: roalexan <roalexan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/02 16:51:55 by roalexan          #+#    #+#             */
-/*   Updated: 2025/05/08 18:04:19 by roalexan         ###   ########.fr       */
+/*   Updated: 2025/05/09 18:23:19 by roalexan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,6 +125,7 @@ int	main(int argc, char **argv)
 	t_stack_node	*a;
 	t_stack_node	*b;
 
+	int n = 0;
 	a = NULL;
 	b = NULL;
 	if (argc == 1 || (argc == 2 && !argv[1][0]))
@@ -142,12 +143,19 @@ int	main(int argc, char **argv)
 			add_node_back(&a, ft_atoi(argv[i]));
 		}
 	}
-	if (stack_len(a) == 2)
-		sa(&a, false);
-	else if (stack_len(a) == 3)
-		sort_three(&a);
-	else
-		
-	
+	if (stack_len(a) > 1)
+	{
+		index_stack(a);
+		if (!is_sorted(a))
+		{
+			if (stack_len(a) == 2)
+				sa(&a);
+			else if (stack_len(a) == 3)
+				sort_three(&a);
+			else
+				radix_sort(&a, &b);
+		}
+	}
+	free_stack(&a);
 	return (0);
 }
