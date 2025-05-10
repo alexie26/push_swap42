@@ -4,7 +4,7 @@ USER = $(shell whoami)
 OS = $(shell uname)
 
 COMPILER = cc
-CFLAGS = -g -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -g 
 
 SRC = getnextline42/get_next_line.c \
       getnextline42/get_next_line_utils.c \
@@ -17,6 +17,7 @@ SRC = getnextline42/get_next_line.c \
 	  src/sort_stack.c \
 	  src/checkin_nodes.c \
 	  src/utils_etc.c \
+	  src/error.c \
 	  push_swap.c \
       
 

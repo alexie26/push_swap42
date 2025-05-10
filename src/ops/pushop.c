@@ -6,7 +6,7 @@
 /*   By: roalexan <roalexan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 13:23:12 by roalexan          #+#    #+#             */
-/*   Updated: 2025/05/09 18:02:33 by roalexan         ###   ########.fr       */
+/*   Updated: 2025/05/10 16:23:27 by roalexan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	push(t_stack_node **a, t_stack_node **b)
 {
-	t_stack_node *node;
-	
+	t_stack_node	*node;
+
 	if (!*b)
 		return ;
 	node = *b;
@@ -36,18 +36,18 @@ void	push(t_stack_node **a, t_stack_node **b)
 	}
 }
 
-void	pa(t_stack_node **a, t_stack_node **b)
-{
-	push(a, b); 
-	ft_printf("pa\n");
-}
-
-void	pb(t_stack_node **b, t_stack_node **a)
+void	pb(t_stack_node **a, t_stack_node **b)
 {
 	push(b, a);
 	ft_printf("pb\n");
 }
 
- // Push Operations
- //- pa: Top node of B on top of A
- //- pb: Top node of A on top of B
+void	pa(t_stack_node **a, t_stack_node **b)
+{
+	push(a, b);
+	ft_printf("pa\n");
+}
+
+// Push Operations
+//- pa: Top node of B on top of A
+//- pb: Top node of A on top of B

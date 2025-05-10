@@ -6,7 +6,7 @@
 /*   By: roalexan <roalexan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 17:12:15 by roalexan          #+#    #+#             */
-/*   Updated: 2025/05/09 18:23:09 by roalexan         ###   ########.fr       */
+/*   Updated: 2025/05/10 17:19:48 by roalexan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,12 @@ typedef struct s_stack_node
 	struct s_stack_node	*prev;
 }						t_stack_node;
 
+typedef struct s_moves
+{
+	char				*move;
+	struct s_moves		*next;
+	struct s_movees		*prev;
+}						t_moves;
 // Stack utils
 t_stack_node			*find_min(t_stack_node *a);
 t_stack_node			*find_max(t_stack_node *a);
@@ -70,7 +76,6 @@ void					current_index(t_stack_node *stack);
 // main
 void					free_stack(t_stack_node **stack);
 t_stack_node			*get_bottom(t_stack_node *stack);
-int						main(int argc, char **argv);
 
 // push_operations;
 void					push(t_stack_node **a, t_stack_node **b);
@@ -103,17 +108,13 @@ int						is_dublicate(t_stack_node *stack, int num);
 void					free_split(char **split);
 void					errer(t_stack_node **stack);
 
-void	add_node_back(t_stack_node **stack, int nbr);
+void					add_node_back(t_stack_node **stack, int nbr);
 
-void	current_index(t_stack_node *stack);
-void	bubble_sort(int *array, int len);
-int		find_median(t_stack_node *stack, int size);
+void					current_index(t_stack_node *stack);
 
-int	is_sorted(t_stack_node *stack);
-void	radix_sort(t_stack_node **a, t_stack_node **b);
-void	index_stack(t_stack_node *stack);
-
-
-
+int						is_sorted(t_stack_node *stack);
+void					radix_sort(t_stack_node **a, t_stack_node **b);
+void					index_stack(t_stack_node *stack);
+void					full_sort(t_stack_node **a, t_stack_node **b);
 
 #endif

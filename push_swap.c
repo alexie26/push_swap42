@@ -6,26 +6,11 @@
 /*   By: roalexan <roalexan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/02 16:51:55 by roalexan          #+#    #+#             */
-/*   Updated: 2025/05/09 18:23:19 by roalexan         ###   ########.fr       */
+/*   Updated: 2025/05/10 17:22:21 by roalexan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
-
-static void	print_stack(t_stack_node *stack)
-{
-	while (stack)
-	{
-		stack = stack->next;
-	}
-	printf("\n");
-}
-t_stack_node	*get_bottom(t_stack_node *stack) // bottom of stack
-{
-	while (stack && stack->next)
-		stack = stack->next;
-	return (stack);
-}
 
 int	is_dublicate(t_stack_node *stack, int num)
 {
@@ -40,36 +25,6 @@ int	is_dublicate(t_stack_node *stack, int num)
 	return (0);
 }
 
-void	free_split(char **split)
-{
-	int	i;
-
-	i = 0;
-	if (!split)
-		return ;
-	while (split[i])
-		free(split[i++]);
-	free(split);
-}
-
-void	errer(t_stack_node **stack)
-{
-	free_stack(stack);
-	ft_printf("Error!\n");
-	exit(1);
-}
-
-void	free_stack(t_stack_node **stack)
-{
-	t_stack_node	*temp;
-
-	while (*stack)
-	{
-		temp = *stack;
-		*stack = (*stack)->next;
-		free(temp);
-	}
-}
 int	ft_isnumeric(char *str)
 {
 	int	i;
@@ -88,7 +43,7 @@ int	ft_isnumeric(char *str)
 	return (1);
 }
 
-char	**special_split(t_stack_node **stack, char *input)
+int	special_split(t_stack_node **stack, char *input)
 {
 	char	**split;
 	int		i;
@@ -110,52 +65,56 @@ char	**special_split(t_stack_node **stack, char *input)
 		}
 		num = ft_atol(split[i]);
 		if (num > INT_MAX || num < INT_MIN || is_dublicate(*stack, (int)num))
-		{
-			free_split(split);
-			errer(stack);
-		}
+			return (free_split(split), errer(stack), 1);
 		add_node_back(stack, (int)num);
 		i++;
 	}
-	return (split);
+	return (free_split(split), 1);
 }
+
+t_stack_node	*parse_argv_into_stack(int argc, char **argv, t_stack_node **a)
+{
+	int		i;
+	long	num;
+
+	i = 1;
+	if (argc == 2)
+		special_split(a, argv[1]);
+	else
+	{
+		while (i < argc)
+		{
+			if (!ft_isnumeric(argv[i]))
+				errer(a);
+			num = ft_atol(argv[i]);
+			if (num > INT_MAX || num < INT_MIN || is_dublicate(*a, (int)num))
+				errer(a);
+			add_node_back(a, (int)num);
+			i++;
+		}
+	}
+	return (*a);
+}
+
+// void	leaks(void)
+// {
+// 	system("leaks push_swap");
+// }
 
 int	main(int argc, char **argv)
 {
 	t_stack_node	*a;
 	t_stack_node	*b;
+	int				n;
 
-	int n = 0;
+	n = 0;
 	a = NULL;
 	b = NULL;
 	if (argc == 1 || (argc == 2 && !argv[1][0]))
 		return (1);
-	if (argc == 2)
-		special_split(&a, argv[1]);
-	else
-	{
-		for (int i = 1; i < argc; i++)
-		{
-			if (!ft_isnumeric(argv[i]) || ft_atol(argv[i]) > INT_MAX
-				|| ft_atol(argv[i]) < INT_MIN || is_dublicate(a,
-					ft_atoi(argv[i])))
-				errer(&a);
-			add_node_back(&a, ft_atoi(argv[i]));
-		}
-	}
+	a = parse_argv_into_stack(argc, argv, &a);
 	if (stack_len(a) > 1)
-	{
-		index_stack(a);
-		if (!is_sorted(a))
-		{
-			if (stack_len(a) == 2)
-				sa(&a);
-			else if (stack_len(a) == 3)
-				sort_three(&a);
-			else
-				radix_sort(&a, &b);
-		}
-	}
+		full_sort(&a, &b);
 	free_stack(&a);
 	return (0);
 }

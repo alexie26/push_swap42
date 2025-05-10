@@ -6,16 +6,15 @@
 /*   By: roalexan <roalexan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/04 16:06:50 by roalexan          #+#    #+#             */
-/*   Updated: 2025/05/09 17:47:55 by roalexan         ###   ########.fr       */
+/*   Updated: 2025/05/10 17:04:02 by roalexan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../pushswap.h"
 
 int	get_node_pos(t_stack_node *node, int size)
-		// positiion in stack based on distace from top
 {
-	int pos;
+	int	pos;
 
 	pos = 0;
 	while (node->prev)
@@ -24,7 +23,7 @@ int	get_node_pos(t_stack_node *node, int size)
 		pos++;
 	}
 	if (pos > size / 2)
-		return (size - pos); // if its in second half return reverse
+		return (size - pos);
 	return (pos);
 }
 
@@ -80,7 +79,8 @@ void	node_to_top(t_stack_node **stack, t_stack_node *node, char stack_name)
 		}
 	}
 }
-void	add_node_back(t_stack_node **stack, int nbr) //add note to the end of a doubly
+
+void	add_node_back(t_stack_node **stack, int nbr)
 {
 	t_stack_node	*new_node;
 	t_stack_node	*last;
@@ -89,6 +89,8 @@ void	add_node_back(t_stack_node **stack, int nbr) //add note to the end of a dou
 	if (!new_node)
 		errer(stack);
 	new_node->nbr = nbr;
+	new_node->i = 0;
+	new_node->above_median = false;
 	new_node->next = NULL;
 	new_node->prev = NULL;
 	if (*stack == NULL)

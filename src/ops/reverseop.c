@@ -6,7 +6,7 @@
 /*   By: roalexan <roalexan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 13:40:57 by roalexan          #+#    #+#             */
-/*   Updated: 2025/05/09 17:34:33 by roalexan         ###   ########.fr       */
+/*   Updated: 2025/05/10 17:02:55 by roalexan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,20 +31,20 @@ void	reverse(t_stack_node **stack)
 void	rra(t_stack_node **a)
 {
 	reverse(a);
-		ft_printf("rra\n");
+	ft_printf("rra\n");
 }
 
 void	rrb(t_stack_node **b)
 {
 	reverse(b);
-		ft_printf("rrb\n");
+	ft_printf("rrb\n");
 }
 
 void	rrr(t_stack_node **a, t_stack_node **b)
 {
 	reverse(a);
 	reverse(b);
-		ft_printf("rrr\n");
+	ft_printf("rrr\n");
 }
 
 //  - rra: Bottom node to the top and shifting the nodes of A down.
